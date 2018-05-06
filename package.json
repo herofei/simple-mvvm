@@ -1,0 +1,38 @@
+{
+  "name": "mvvm",
+  "version": "1.0.0",
+  "description": "a easy mvvm frame-work",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "watch": "webpack --watch",
+    "server": "node server.js",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herofei/simple-mvvm.git"
+  },
+  "keywords": [
+    "mvvm"
+  ],
+  "author": "mat.he",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/herofei/simple-mvvm/issues"
+  },
+  "homepage": "https://github.com/herofei/simple-mvvm#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "babel-loader": "^8.0.0-beta.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "express": "^4.16.3",
+    "html-webpack-plugin": "^2.29.0",
+    "webpack": "^3.11.0",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-middleware": "^3.1.3",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
