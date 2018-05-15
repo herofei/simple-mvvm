@@ -3,11 +3,13 @@
  * Observer
  */
 
-import { isObject } from 'util/index';
+import {
+    isObject
+} from 'util/index';
 import Dep from './dep';
 
- class Oberserver {
-    constructor (data) {
+class Observer {
+    constructor(data) {
         if (!isObject(data)) {
             return;
         }
@@ -15,20 +17,20 @@ import Dep from './dep';
         this.walk(this._data);
     }
 
-    walk (data) {
+    walk(data) {
         Object.keys(data).forEach((key) => {
             this.defineReactive(data, key, data[key]);
         });
     }
 
-    defineReactive (obj, key, value) {
+    defineReactive(obj, key, value) {
         let me = this,
             dep = new Dep();
         if (value && isObject(value)) {
             this.walk(value);
         }
         Object.defineProperty(obj, key, {
-            get () {
+            get() {
                 let watcher = Dep.target;
                 if (watcher && dep.subs[watcher.id]) {
                     dep.addDep(watcher);
@@ -36,7 +38,7 @@ import Dep from './dep';
                 return value;
             },
 
-            set (newValue) {
+            set(newValue) {
                 if (value !== newValue) {
                     if (value && isObject(newValue)) {
                         me.walk(newValue);
@@ -47,4 +49,16 @@ import Dep from './dep';
             }
         })
     }
- }
+}
+
+function observe(value, asRootData) {
+    if (!value || !isObject(value)) {
+        return;
+    }
+    return new Observer(value);
+}
+
+export {
+    Observer,
+    observe
+}

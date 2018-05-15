@@ -20,13 +20,34 @@ function isObject(obj) {
     return obj !== null && typeof obj === 'object';
 }
 
-function isFunction (fn) {
-    return typeof expOrFn === 'function';
+function isFunction(fn) {
+    return typeof fn === 'function';
+}
+
+function isDirective(attr) {
+    return attr.indexOf('v-') === 0;
+}
+
+function isEventDirective(dir) {
+    return dir.indexOf('on') === 0;
+}
+
+function isElementNode(node) {
+    return node.nodeType == 1;
+}
+
+function isTextNode(node) {
+    return node.nodeType == 3;
 }
 
 export default _ = {
     isUndef,
     isTrue,
     isFalse,
-    isObject
+    isObject,
+    isFunction,
+    isDirective,
+    isEventDirective,
+    isElementNode,
+    isTextNode
 };

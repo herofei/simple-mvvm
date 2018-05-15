@@ -37,6 +37,28 @@ class Compiler {
         return fragment;
     }
 
+    compileElement(el) {
+        let me = this,
+            childNodes = el.childNodes;
+
+        [].slice.call(childNodes).forEach((node) => {
+            let text = node.textContent,
+                reg = /\{\{((?:.|\n)+?)\}\}/;
+
+            // 按元素节点方式编译
+            if (isElementNode(node)) {
+                me.compile(node);
+            } else if (isTextNode(node) && reg.test(text)) {
+                me.compileText(node, RegExp.$1);
+            }
+            
+            // 遍历编译子节点
+            if (node.childNodes && node.childNodes.length) {
+                me.compileElement(node);
+            }
+        });
+    }
+
     compile(node) {
         let nodeAttrs = node.attributes;
 
@@ -58,7 +80,7 @@ class Compiler {
         })
     }
 
-    eventHandler (node, vm, exp, dir) {
+    eventHandler(node, vm, exp, dir) {
         var eventType = dir.split(':')[1],
             fn = vm.$options.methods && vm.$options.methods[exp];
 
