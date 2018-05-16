@@ -29,7 +29,7 @@ class VM {
 
         observe(data, this);
 
-        this.$compile = new Compiler(options.el || document.body, this)
+        this.$compile = new Compiler(options.el || document.body, this);
     }
 
     $watch (key, cb) {

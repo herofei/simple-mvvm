@@ -2,8 +2,6 @@
  * @author mat.he 2018.05.14
  */
 
-let _;
-
 function isUndef(v) {
     return v === undefined || v === null;
 }
