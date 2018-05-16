@@ -6,22 +6,31 @@
 class Dep {
     constructor() {
         // 订阅者列表
-        this.subs  = [];
+        this.subs = [];
     }
 
     // 添加订阅者
-    addSub (watcher) {
+    addSub(watcher) {
         if (watcher) {
             this.subs.push(watcher);
         }
     }
 
+    removeSub(watcher) {
+        let index = this.subs.indexOf(watcher);
+        if (index !== -1) {
+            this.subs.splice(index, 1);
+        }
+    }
+
     // 通知所有订阅者更新
-    notify () {
+    notify() {
         this.subs.forEach((watcher) => {
             watcher.update();
         });
     }
 }
+
+Dep.target = null;
 
 export default Dep;

@@ -5,7 +5,7 @@
 
 import {
     isObject
-} from 'util/index';
+} from '../util/index';
 import Dep from './dep';
 
 class Observer {
@@ -32,8 +32,8 @@ class Observer {
         Object.defineProperty(obj, key, {
             get() {
                 let watcher = Dep.target;
-                if (watcher && dep.subs[watcher.id]) {
-                    dep.addDep(watcher);
+                if (watcher) {
+                    dep.addSub(watcher);
                 }
                 return value;
             },

@@ -9,10 +9,10 @@ import { isFunction } from '../util/index';
 let uid = 0;
 
 class Watcher {
-    constructor(obj, expOrFn, callback) {
-       this.vm = obj;
+    constructor(vm, expOrFn, callback) {
+       this.vm = vm;
        this.id = uid++;
-       this.exp = exp;
+       this.exp = expOrFn;
        this.callback = callback;
        this.oldValue = '';
        if (isFunction(expOrFn)) {

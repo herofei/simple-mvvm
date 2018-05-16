@@ -40,7 +40,7 @@ function isTextNode(node) {
     return node.nodeType == 3;
 }
 
-export default _ = {
+export {
     isUndef,
     isTrue,
     isFalse,

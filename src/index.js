@@ -6,7 +6,7 @@
 import { 
     isObject,
     isFunction 
-} from 'util/index';
+} from './util/index';
 
 import {
     Observer,
@@ -14,7 +14,7 @@ import {
 } from './observer/observer';
 
 import Compiler from './compiler/compiler';
-import Watcher from './watcher/watcher';
+import Watcher from './watcher/index';
 class VM {
     constructor(options = {}) {
         this.$options = options;

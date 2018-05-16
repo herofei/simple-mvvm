@@ -51,7 +51,7 @@ class Compiler {
             } else if (isTextNode(node) && reg.test(text)) {
                 me.compileText(node, RegExp.$1);
             }
-            
+
             // 遍历编译子节点
             if (node.childNodes && node.childNodes.length) {
                 me.compileElement(node);
@@ -70,14 +70,18 @@ class Compiler {
                 let exp = attr.value;
 
                 if (isEventDirective(dir)) {
-                    this.eventHandler(node, self.$vm, exp, dir);
+                    this.eventHandler(node, this.$vm, exp, dir);
                 } else {
-                    compilerUtils[dir] && compilerUtils[dir](node, self.$vm, exp);
+                    compilerUtils[dir] && compilerUtils[dir](node, this.$vm, exp);
                 }
 
                 node.removeAttribute(attrName);
             }
         })
+    }
+
+    compileText(node, exp) {
+        compilerUtils.text(node, this.$vm, exp);
     }
 
     eventHandler(node, vm, exp, dir) {
@@ -90,3 +94,5 @@ class Compiler {
     }
 
 }
+
+export default Compiler;
