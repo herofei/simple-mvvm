@@ -1,6 +1,5 @@
 node_modules
 server.js
-webpack.config.js
 
 # Log files
 npm-debug.log*
