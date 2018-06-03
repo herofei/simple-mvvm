@@ -1,5 +1,5 @@
 # simple-mvvm
-a simple mvvm
+a mvvm framework
 
 ## Getting started
 
