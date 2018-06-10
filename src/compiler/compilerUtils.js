@@ -37,8 +37,8 @@ let $elm,
                 timer = setTimeout(function () {
                     me._setVmVal(vm, exp, newVal);
                     val = newVal;
-                })
-            })
+                });
+            });
         },
 
         bind (node, vm, exp, dir) {
@@ -68,7 +68,7 @@ let $elm,
             exps.forEach((key) => {
                 key = key.trim();
                 val = val[key];
-            })
+            });
 
             return val;
         },
@@ -84,7 +84,7 @@ let $elm,
                 } else {
                     val[key] = newVal;
                 }
-            })
+            });
         }
     },
 
@@ -103,7 +103,7 @@ let $elm,
             $elm = void 0;
             node.value = typeof value === 'undefined' ? '' : value;
         }
-    }
+    };
 
 export {
     compilerUtils,

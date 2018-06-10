@@ -77,7 +77,7 @@ class Compiler {
 
                 node.removeAttribute(attrName);
             }
-        })
+        });
     }
 
     compileText(node, exp) {

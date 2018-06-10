@@ -47,7 +47,7 @@ class Observer {
                     dep.notify();
                 }
             }
-        })
+        });
     }
 }
 
@@ -61,4 +61,4 @@ function observe(value, asRootData) {
 export {
     Observer,
     observe
-}
+};

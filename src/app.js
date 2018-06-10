@@ -12,5 +12,5 @@ window.vm = new VM({
         name : 'mat.he',
         input : 'this is a text-input'
     }
-})
+});
 

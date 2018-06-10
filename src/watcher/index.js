@@ -60,7 +60,7 @@ class Watcher {
                 obj = obj[exps[i]];
             }
             return obj;
-        }
+        };
     }
 }
 
